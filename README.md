@@ -1,7 +1,12 @@
 # authentication
 
-This is a simple authentication project built with react-native targetting android and IOS both. It uses Parse
-as its backend.
+This is a simple authentication project built with react-native targetting android and IOS both. It uses Parse as its backend.
+
+### Tools used for back-end integration
+* https://github.com/ParsePlatform/ParseReact
+* npm install --save parse parse-react
+parse is for fetch data from back-end.
+parse-react is glue between parse and react app, and reads data parse fetched above.
 
 ### Tools used for android: 
 * Genymotion, VirtualBox (dependancy of Genymotion), 
@@ -11,6 +16,13 @@ as its backend.
 * Run genymotion -> hit start for the device to be tested
 * on command prompt for project -> react-native start
 * to deploy the project on device in genymotion -> react-native run-android
+
+### Tools used for android: 
+* Xcode - iPhone 6s Puls (9.1)
+
+###  To launch the app for iphone simulator:
+* Open the project in Xcode
+* click on launch in the toolbar
 
 ### The difference between Genymotion and Xcode simulator for refresh JS:
 Xcode - cmd + R

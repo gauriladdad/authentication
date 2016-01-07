@@ -24,16 +24,25 @@ module.exports = React.createClass({
 				<Text style={styles.label}>Username: </Text>
 				<TextInput 
 					value={this.state.username}
-					onChangeText={(text) => this.setState({ username: text})}
+					//using arrow function
+					onChangeText={
+						(text) => this.setState({ username: text})
+					}
 					style={styles.input} />
 				<Text style={styles.label}>Password: </Text>
-				<TextInput secureTextEntry={true} style={styles.input} />
+				<TextInput 
+					secureTextEntry={true} 
+					style={styles.input} 
+					value={this.state.password}
+					onChangeText={ (text) => this.setState({ password: text })}/>
 				<Button text={'Sign In'} onPress={this.onPress}/>
 			</View>	
-		)
+		);
 	},
 	onPress: function() {
-
+		this.setState({
+			password: ''
+		})
 	}
 });
 
