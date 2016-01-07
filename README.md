@@ -4,6 +4,7 @@ This is a simple authentication project built with react-native targetting andro
 
 ### Tools used for back-end integration
 * https://github.com/ParsePlatform/ParseReact
+* https://parse.com/docs/js/guide#users
 * npm install --save parse parse-react
 parse is for fetch data from back-end.
 parse-react is glue between parse and react app, and reads data parse fetched above.
@@ -23,6 +24,7 @@ parse-react is glue between parse and react app, and reads data parse fetched ab
 ###  To launch the app for iphone simulator:
 * Open the project in Xcode
 * click on launch in the toolbar
+* to launch chrome debugger - press cmd + D
 
 ### The difference between Genymotion and Xcode simulator for refresh JS:
 Xcode - cmd + R

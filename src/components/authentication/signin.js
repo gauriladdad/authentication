@@ -7,13 +7,15 @@ var {
 	TextInput
 } = React;
 
+var Parse = require('parse/react-native');
 var Button = require('../common/button');
 
 module.exports = React.createClass({
 	getInitialState: function() {
 		return {
 			username: '',
-			password: ''
+			password: '',
+			errorMessage: ''
 		};
 	},
 	render: function() {
@@ -35,14 +37,18 @@ module.exports = React.createClass({
 					style={styles.input} 
 					value={this.state.password}
 					onChangeText={ (text) => this.setState({ password: text })}/>
+
+				<Text style={styles.label}> {this.state.errorMessage} </Text>	
+					
 				<Button text={'Sign In'} onPress={this.onPress}/>
 			</View>	
 		);
 	},
 	onPress: function() {
-		this.setState({
-			password: ''
-		})
+		Parse.User.logIn(this.state.username, this.state.password, {
+			success: (user) => { console.log(user); },
+			error: (data, error) => { this.setState({errorMessage: error.message}); }
+		});
 	}
 });
 
