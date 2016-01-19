@@ -7,6 +7,7 @@ var {
 	TextInput
 } = React;
 
+var Parse = require('parse/react-native')
 var Button = require('../common/button');
 
 module.exports = React.createClass({
@@ -28,21 +29,21 @@ module.exports = React.createClass({
 				<Text style={styles.label}>Username:</Text>
 				<TextInput
 					value={this.state.username}
-					onChangeText={ (text) => this.setState({username: Text})} 
+					onChangeText={ (text) => this.setState({username: text})} 
 					style={styles.input}/>
 
 				<Text style={styles.label}>Password:</Text>
 				<TextInput
 					secureTextEntry={true}
 					value={this.state.password}
-					onChangeText={ (text) => this.setState({password: Text})} 
+					onChangeText={ (text) => this.setState({password: text})} 
 					style={styles.input}/>
 					
 				<Text style={styles.label}>Confirm password:</Text>
 				<TextInput
 					secureTextEntry={true}
 					value={this.state.passwordConfirmation}
-					onChangeText={ (text) => this.setState({passwordConfirmation: Text})} 
+					onChangeText={ (text) => this.setState({passwordConfirmation: text})} 
 					style={styles.input}/>		
 
 				<Text style={styles.label}>{this.state.errorMessage}</Text>
@@ -56,9 +57,18 @@ module.exports = React.createClass({
 		);
 	},
 	onSignupPress: function() {
-		if (this.state.password !== this.state.passwordConfirmation ) {
-			this.setState({errorMessage: "Your passwords do not match"});
+		if (this.state.password !== this.state.passwordConfirmation) {
+			return this.setState({errorMessage: "Your passwords do not match"});
 		}
+		
+		var user = new Parse.User();
+		user.set('username', this.state.username);
+		user.set('password', this.state.password);
+
+		user.signUp(null, {
+			success: (user) => { console.log(user); },
+			error: (user, error) => {console.log(error); } 
+		})
 	},
 	onSigninPress: function() {
 	//remember the sign in view is already in stack, just need to remove signup from stack
