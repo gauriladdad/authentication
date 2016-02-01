@@ -1,6 +1,18 @@
 # authentication
 
+========= Project description ========= 
 This is a simple authentication project built with react-native targetting android and IOS both. It uses Parse as its backend.
+
+========= Tools used =========
+
+1. Github repository. 
+2. React-native
+3. Xcode
+4. Sublime editor
+
+========= Device Support =========
+
+This application works well on iOS platform.
 
 ### Tools used for back-end integration
 * https://github.com/ParsePlatform/ParseReact
